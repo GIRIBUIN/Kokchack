@@ -1,0 +1,44 @@
+@startuml
+
+left to right direction
+
+actor "사장" as Owner
+actor "직원" as Employee
+
+rectangle "KokChack" {
+
+    usecase "로그인" as UC_Login
+
+    usecase "매장 기준정보 관리" as UC_Store
+    usecase "직원 관리" as UC_Member
+
+    usecase "발주 요청 확인" as UC_RequestCheck
+    usecase "주문 작성" as UC_Order
+    usecase "발주 메시지\n생성 및 복사" as UC_Message
+
+    usecase "지급 처리" as UC_Payment
+    usecase "거래원장 관리" as UC_Ledger
+    usecase "통계 조회" as UC_Statistics
+
+    usecase "매장 품목 조회" as UC_ProductView
+    usecase "발주 요청 생성" as UC_Request
+    usecase "발주 요청 내역 조회" as UC_RequestHistory
+}
+
+Owner --> UC_Login
+Employee --> UC_Login
+
+Owner --> UC_Store
+Owner --> UC_Member
+Owner --> UC_RequestCheck
+Owner --> UC_Order
+Owner --> UC_Message
+Owner --> UC_Payment
+Owner --> UC_Ledger
+Owner --> UC_Statistics
+
+Employee --> UC_ProductView
+Employee --> UC_Request
+Employee --> UC_RequestHistory
+
+@enduml
